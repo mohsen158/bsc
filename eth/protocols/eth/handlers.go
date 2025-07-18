@@ -489,6 +489,7 @@ func handleTransactions(backend Backend, msg Decoder, peer *Peer) error {
 		log.Info("Received transaction from peer",
 			"peer_id", peer.ID(),
 			"peer_addr", peer.Peer.RemoteAddr(),
+			"enode", peer.Node().String(),
 			"tx_hash", tx.Hash().Hex(),
 			"time", fmt.Sprintf("%s", time.Now().Format(time.RFC3339Nano)),
 		)
