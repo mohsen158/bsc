@@ -19,7 +19,6 @@ package eth
 import (
 	"encoding/json"
 	"fmt"
-	"time"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
@@ -486,13 +485,13 @@ func handleTransactions(backend Backend, msg Decoder, peer *Peer) error {
 		}
 		peer.markTransaction(tx.Hash())
 		// Log peer info, transaction hash, and time
-		log.Info("Received transaction from peer",
-			"peer_id", peer.ID(),
-			"peer_addr", peer.Peer.RemoteAddr(),
-			"enode", peer.Node().String(),
-			"tx_hash", tx.Hash().Hex(),
-			"time", fmt.Sprintf("%s", time.Now().Format(time.RFC3339Nano)),
-		)
+		// log.Info("Received transaction from peer",
+		// 	"peer_id", peer.ID(),
+		// 	"peer_addr", peer.Peer.RemoteAddr(),
+		// 	"enode", peer.Node().String(),
+		// 	"tx_hash", tx.Hash().Hex(),
+		// 	"time", fmt.Sprintf("%s", time.Now().Format(time.RFC3339Nano)),
+		// )
 	}
 	return backend.Handle(peer, &txs)
 }
